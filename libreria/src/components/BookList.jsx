@@ -2,23 +2,31 @@ import React from "react";
 
 function BookList({ books, onEdit, onDelete }) {
   return (
-    <ul className="books-list">
-      {books.map((book) => (
-        <li key={book.id} className="book-item">
-          <div className="book-details">
-            <p>ID: {book.id}</p>
-            <h3>{book.title}</h3>
-            <p>Autor: {book.author}</p>
-            <p>Año: {book.publication_year}</p>
-            <p>Género: {book.genre}</p>
-          </div>
-          <div className="book-actions">
-            <button onClick={() => onEdit(book)}>✏️ Editar</button>
-            <button onClick={() => onDelete(book.id)}>🗑️ Eliminar</button>
-          </div>
-        </li>
-      ))}
-    </ul>
+    <table className="books-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>AUTOR</th>
+          <th>AÑO</th>
+          <th>ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody>
+        {books.map((book) => (
+          <tr key={book.id}>
+            <td>{book.id}</td>
+            <td>{book.title}</td>
+            <td>{book.author}</td>
+            <td>{book.publication_year}</td>
+            <td>
+              <button onClick={() => onEdit(book)}>✏️ Editar</button>
+              <button onClick={() => onDelete(book.id)}>🗑️ Eliminar</button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
 

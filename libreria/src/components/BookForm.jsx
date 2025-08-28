@@ -43,14 +43,6 @@ function BookForm({ currentBook, onSave, onCancel }) {
         onChange={handleChange}
         required
       />
-      <input
-        type="text"
-        name="genre"
-        placeholder="Género del libro"
-        value={book.genre || ""}
-        onChange={handleChange}
-        required
-      />
       <button type="submit">{book.id ? "Actualizar" : "Registrar"}</button>
       {book.id && (
         <button type="button" onClick={onCancel}>

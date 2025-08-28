@@ -139,11 +139,48 @@ button[type="button"]:hover {
   background-color: var(--secondary-hover-color);
 }
 
-.books-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.books-table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #232946;
+  color: var(--text-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
+
+.books-table th, .books-table td {
+  padding: 14px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.books-table th {
+  background-color: #121629;
+  color: #a4c6fa;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+
+.books-table button {
+  margin-right: 8px;
+  padding: 7px 14px;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.95em;
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.books-table button:last-child {
+  margin-right: 0;
+  background-color: #e74c3c;
+}
+
+
+
 
 .book-item {
   background-color: #1a1a2e;

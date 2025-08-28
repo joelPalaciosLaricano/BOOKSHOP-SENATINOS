@@ -65,7 +65,7 @@ function App() {
           <h2>{currentBook ? "Editar Libro" : "Añadir Nuevo Libro"}</h2>
           <BookForm
             currentBook={
-              currentBook || { title: "", author: "", publication_year: "", genre: "" }
+              currentBook || { title: "", author: "", publication_year: "" }
             }
             onSave={handleSave}
             onCancel={handleCancel}
