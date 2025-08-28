@@ -1,0 +1,36 @@
+
+
+name: CI Backend Django
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'libreria/**' # Esto evita que el flujo se ejecute si solo cambian archivos del frontend
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'libreria/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout del codigo
+      uses: actions/checkout@v2
+
+    - name: Configuracion de Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9' # Usa la version de Python que tu proyecto de Django usa
+
+    - name: Instalacion de dependencias
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt # Asegurate de tener un archivo requirements.txt con todas tus dependencias
+
+    - name: Ejecutar tests
+      run: python manage.py test
