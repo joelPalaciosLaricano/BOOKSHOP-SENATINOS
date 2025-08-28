@@ -1,0 +1,35 @@
+
+name: CI Frontend React
+
+on:
+  push:
+    branches:
+      - main  # O la rama en la que quieras que esto se active
+    paths:
+      - 'libreria/**' # Esto asegura que el flujo solo se ejecute cuando cambien archivos en la carpeta 'libreria'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'libreria/**'
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout del codigo
+      uses: actions/checkout@v2
+
+    - name: Configuracion de Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16' # Usa la version de Node.js que tu proyecto requiera
+
+    - name: Instalacion de dependencias
+      run: npm install
+      working-directory: './libreria' # Esto le dice a la accion que ejecute el comando dentro de la carpeta 'libreria'
+
+    - name: Ejecutar build
+      run: npm run build
+      working-directory: './libreria'
