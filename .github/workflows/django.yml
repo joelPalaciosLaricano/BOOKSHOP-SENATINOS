@@ -1,3 +1,4 @@
+
 name: CI Backend Django
 
 on:
@@ -5,7 +6,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'libreria/**' # Esto evita que el flujo se ejecute si solo cambian archivos del frontend
+      - 'libreria/**'
   pull_request:
     branches:
       - main
@@ -23,12 +24,15 @@ jobs:
     - name: Configuracion de Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.11' # CAMBIADO: Ahora se usa una version de Python compatible con Django 5.x
+        python-version: '3.11'
 
     - name: Instalacion de dependencias
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt # Asegurate de tener un archivo requirements.txt con todas tus dependencias
+        pip install -r requirements.txt
+
+    - name: Listar paquetes instalados
+      run: pip freeze
 
     - name: Ejecutar tests
       run: python manage.py test
