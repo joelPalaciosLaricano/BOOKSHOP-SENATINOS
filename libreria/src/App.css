@@ -46,12 +46,7 @@ body {
 }
 
 .form-section {
-  /* flex: 1; Removido, ahora controlado por grid */
   min-width: 300px; /* Ancho mínimo para el formulario */
-}
-
-.books-list-section {
-  /* flex: 2; Removido, ahora controlado por grid */
 }
 
 .app-header {
@@ -93,6 +88,18 @@ h1, h2 {
   border-radius: 10px;
   margin-bottom: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para el select del formulario de libros */
+select {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1em;
+  background-color: #2c3e50;
+  color: var(--text-color);
+  margin-bottom: 10px;
+  transition: border-color 0.3s;
 }
 
 form {
@@ -178,8 +185,6 @@ button[type="button"]:hover {
   margin-right: 0;
   background-color: #e74c3c;
 }
-
-
 
 
 .book-item {

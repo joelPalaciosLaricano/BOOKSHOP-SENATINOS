@@ -9,6 +9,7 @@ function BookList({ books, onEdit, onDelete }) {
           <th>NOMBRE</th>
           <th>AUTOR</th>
           <th>AÑO</th>
+          <th>GENERO</th>
           <th>ACCIONES</th>
         </tr>
       </thead>
@@ -19,6 +20,7 @@ function BookList({ books, onEdit, onDelete }) {
             <td>{book.title}</td>
             <td>{book.author}</td>
             <td>{book.publication_year}</td>
+            <td>{book.genre}</td>
             <td>
               <button onClick={() => onEdit(book)}>✏️ Editar</button>
               <button onClick={() => onDelete(book.id)}>🗑️ Eliminar</button>

@@ -14,8 +14,25 @@ function BookForm({ currentBook, onSave, onCancel }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave(book);
+    // Convertir publication_year a número
+    onSave({
+      ...book,
+      publication_year: parseInt(book.publication_year) || 0
+    });
   };
+
+  const genreOptions = [
+    { value: "ficcion", label: "Ficción" },
+    { value: "no_ficcion", label: "No Ficción" },
+    { value: "fantasia", label: "Fantasía" },
+    { value: "ciencia_ficcion", label: "Ciencia Ficción" },
+    { value: "misterio", label: "Misterio" },
+    { value: "biografia", label: "Biografía" },
+    { value: "poesia", label: "Poesía" },
+    { value: "romance", label: "Romance" },
+    { value: "terror", label: "Terror" },
+    { value: "otro", label: "Otro" }
+  ];
 
   return (
     <form onSubmit={handleSubmit}>
@@ -41,8 +58,23 @@ function BookForm({ currentBook, onSave, onCancel }) {
         placeholder="Año de publicación"
         value={book.publication_year || ""}
         onChange={handleChange}
+        min="1000"
+        max="2030"
         required
       />
+      <select
+        name="genre"
+        value={book.genre || ""}
+        onChange={handleChange}
+        required
+      >
+        <option value="">Seleccionar género</option>
+        {genreOptions.map(option => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
       <button type="submit">{book.id ? "Actualizar" : "Registrar"}</button>
       {book.id && (
         <button type="button" onClick={onCancel}>
