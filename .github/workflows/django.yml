@@ -1,5 +1,3 @@
-
-
 name: CI Backend Django
 
 on:
@@ -25,7 +23,7 @@ jobs:
     - name: Configuracion de Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.9' # Usa la version de Python que tu proyecto de Django usa
+        python-version: '3.11' # CAMBIADO: Ahora se usa una version de Python compatible con Django 5.x
 
     - name: Instalacion de dependencias
       run: |
