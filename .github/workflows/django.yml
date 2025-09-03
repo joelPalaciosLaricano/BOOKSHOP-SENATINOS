@@ -10,12 +10,21 @@ on:
   pull_request:
     branches:
       - main
+    paths-ignore:
+      - 'libreria/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout del codigo
+      uses: actions/checkout@v2
 
     - name: Configuracion de Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.11' # CAMBIADO: Ahora se usa una version de Python compatible con Django 5.x
-        python-version: '3.11'
 
     - name: Instalacion de dependencias
       run: |
@@ -28,4 +37,3 @@ on:
 
     - name: Ejecutar tests
       run: python manage.py test
-
